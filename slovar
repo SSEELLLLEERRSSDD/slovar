@@ -1,0 +1,123 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication42
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var people = new Dictionary<string, string>()
+            {
+                { "apple", "яблоко"},
+                { "cherry", "вишня"},
+                { "pineapple", "ананас"}
+            }
+            ;
+
+
+            
+            Console.WriteLine("Выберите действие");
+            Console.WriteLine("0.Выход");
+            Console.WriteLine("1.Перебрать словарь");
+            Console.WriteLine("2.Вывести значение слова.");
+            Console.WriteLine("3.удаление словаря");
+            Console.WriteLine("4.удалить элемент словаря");
+            Console.WriteLine("5.Проверить наличие ключа в словаре");
+            Console.WriteLine("6.Проверить наличие значения в словаре");
+            Console.WriteLine("7.Пополнить словарь");
+
+            int n = Convert.ToInt32(Console.ReadLine());
+            while (n != 0)
+            {
+                
+                switch (n)
+                {
+                    case 1:
+                        if(people.Count == 0)
+                            Console.WriteLine("Словарь пуст");
+                        else;
+                            foreach (var person in people)
+                 {
+                Console.WriteLine("Ключ: "+ person.Key+ ", Значение: " + person.Value);
+                }
+                            Console.WriteLine();
+                        break;
+                    case 2:
+                        if (people.Count == 0)
+                            Console.WriteLine("Словарь пуст");
+
+                        else
+                        {
+                            Console.WriteLine("Какое слово из словаря вы хотите перевести?");
+                            foreach (var person in people)
+                            {
+                                Console.WriteLine("Ключ: " + person.Key);
+                            }
+                            string key = Console.ReadLine();
+                            Console.WriteLine(people[key]);
+                            Console.WriteLine();
+                        }
+                        break;
+                    case 3:
+                        people.Clear();
+                        Console.WriteLine("Словарь успешно удален!");
+                        Console.WriteLine();
+                        break;
+                    case 4:
+                        Console.WriteLine("Какое слово из словаря вы хотите удалить??");
+                            foreach (var person in people)
+                            {
+                                Console.WriteLine("Ключ: " + person.Key);
+                            }
+                            string key2 = Console.ReadLine();
+                            people.Remove(key2);
+                            Console.WriteLine("элемент успешно удален!");
+                       
+                        break;
+                    case 5:
+                        Console.WriteLine("Какой ключ вы хотите проверить??");
+                        string TrySearch = Console.ReadLine();
+                        if (people.ContainsKey(TrySearch))
+                            Console.WriteLine("Такой ключ найден! его значение: " + people[TrySearch]);
+                        else
+                            Console.WriteLine("Такой ключ не обнаружен");
+                        break;
+                    case 6:
+                        Console.WriteLine("Какое значение вы хотите проверить??");
+                        string TrySearchValue = Console.ReadLine();
+                        if (people.ContainsValue(TrySearchValue))
+                            Console.WriteLine("Такое значение найдено!");
+                        else
+                            Console.WriteLine("Такое значение не обнаружено");
+                       
+                        break;
+                    case 7:
+                        Console.WriteLine("Введите слово на английском");
+                        string keyy = Console.ReadLine();
+                        Console.WriteLine("Введите его перевод");
+                        string valuee = Console.ReadLine();
+                        people.Add(keyy, valuee);
+                        Console.WriteLine("Словарь был пополнен");
+                        break;
+                }
+                Console.WriteLine("Выберите действие");
+                Console.WriteLine("0.Выход");
+                Console.WriteLine("1.Перебрать словарь");
+                Console.WriteLine("2.Вывести значение слова.");
+                Console.WriteLine("3.удаление словаря");
+                Console.WriteLine("4.удалить элемент словаря");
+                Console.WriteLine("5.Проверить наличие ключа в словаре");
+                Console.WriteLine("6.Проверить наличие значения в словаре");
+                Console.WriteLine("7.Пополнить словарь");
+
+                n = Convert.ToInt32(Console.ReadLine());
+            }
+             
+        }
+    }
+}
+
